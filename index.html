@@ -1,25 +1,19 @@
 <!-- AR.js by @jerome_etienne - github: https://github.com/jeromeetienne/ar.js - info: https://medium.com/arjs/augmented-reality-in-10-lines-of-html-4e193ea9fdbf -->
 <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.5.0/aframe/examples/vendor/aframe/build/aframe.min.js"></script>
 <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.5.0/aframe/build/aframe-ar.js"></script>
+
 <body style='margin : 0px; overflow: hidden;'>
-	<a-scene embedded arjs='trackingMethod: best;'>
-      <a-anchor hit-testing-enabled='true'>
-   		
-	<iframe  
-		position="0 0.0 0"
-        rotation="-90 0 0"
-        align="left" anchor="left" width="480"
-		src="https://giphy.com/embed/26ufdipQqU2lhNA4g" width="480" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
-  
-   		   <a-text
-        id="textPrimitive"
-        position="0 0.0 0"
-        rotation="-90 0 0"
-        align="left" anchor="left" width="5"
-        value="Whaaaaaat!">
+  <a-scene embedded arjs='trackingMethod: best;'>
+    <a-assets>
+      <video id="mind-blown" autoplay loop="true" src="https://media.giphy.com/media/EldfH1VJdbrwY/giphy.mp4"></video>
+    </a-assets>
+    <a-anchor>
+      <a-video src="#mind-blown" rotation="-90 0 0"></a-video>
+
+      <a-text id="textPrimitive" position="0 1.0 0" rotation="-90 0 0" align="left" anchor="left" width="5" value="Whaaaaaat!">
       </a-text>
-   		
-      </a-anchor>
-		<a-camera-static/>
-	</a-scene>
+
+    </a-anchor>
+    <a-camera-static/>
+  </a-scene>
 </body>
