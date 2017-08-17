@@ -1,11 +1,24 @@
 <!-- AR.js by @jerome_etienne - github: https://github.com/jeromeetienne/ar.js - info: https://medium.com/arjs/augmented-reality-in-10-lines-of-html-4e193ea9fdbf -->
 <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.5.0/aframe/examples/vendor/aframe/build/aframe.min.js"></script>
-<script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.5.0/aframe/build/aframe-ar.js"></script>
+<script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.5.0/aframe/build/aframe-ar.js">
+
+</script>
+<script type="text/javascript">
+  var video = document.querySelector('mind-blown');
+  // use the whole window and a *named function*
+  window.addEventListener('touchstart', function videoStart() {
+    video.play();
+    console.log('first touch');
+    // remove from the window and call the function we are removing
+    this.removeEventListener('touchstart', videoStart);
+  });
+
+</script>
 
 <body style='margin : 0px; overflow: hidden;'>
   <a-scene embedded arjs='trackingMethod: best;'>
     <a-assets>
-      <video id="mind-blown" class="video" autoplay muted loop="true" src="https://media.giphy.com/media/EldfH1VJdbrwY/giphy.mp4"></video>
+      <video id="mind-blown" autoplay loop="true" src="https://media.giphy.com/media/EldfH1VJdbrwY/giphy.mp4"></video>
     </a-assets>
     <a-anchor>
       <a-video src="#mind-blown" rotation="-90 0 0"></a-video>
